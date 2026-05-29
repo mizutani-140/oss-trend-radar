@@ -1,0 +1,36 @@
+{
+  "created_at": "2026-05-29T08:53:48+00:00",
+  "dispatchable_task_ids": [
+    "T-0002"
+  ],
+  "goal_id": "G-0002",
+  "handoffs": [
+    ".shiki/handoffs/T-0002-task.md"
+  ],
+  "id": "START-0001",
+  "issues": [
+    {
+      "issue": 1,
+      "ledger_id": "L-0007",
+      "task_id": "T-0002",
+      "url": "https://github.com/mizutani-140/oss-trend-radar/issues/1"
+    }
+  ],
+  "plan_id": "P-0001",
+  "project_name": "OSS Trend Radar",
+  "questions": [
+    "GitHub repo slug (OWNER/REPO)",
+    "Project name",
+    "Goal title",
+    "Outcome / success result",
+    "Completion conditions",
+    "Non-goals",
+    "First vertical-slice task title",
+    "First task scope",
+    "First task acceptance checks",
+    "First task locks"
+  ],
+  "repo": "mizutani-140/oss-trend-radar",
+  "run_id": "RUN-0001",
+  "skills_dir": "/Users/kio.mizutani/Documents/lead-os/skills/engineering"
+}

@@ -1,0 +1,13 @@
+{
+  "actor": "shiki-cli",
+  "evidence": [
+    ".shiki/tasks/T-0002.json"
+  ],
+  "goal_id": "G-0002",
+  "id": "L-0003",
+  "links": [],
+  "summary": "Task registered from plan: \u6700\u521d\u306e\u7e26\u5207\u308a: Search API\u304b\u3089\u4eba\u6c17OSS\u4e0a\u4f4dN\u4ef6\u3092\u53d6\u5f97\u3057Markdown\u30ec\u30dd\u30fc\u30c8\u30921\u30d5\u30a1\u30a4\u30eb\u751f\u6210\u3059\u308bCLI",
+  "task_id": "T-0002",
+  "timestamp": "2026-05-29T08:53:48+00:00",
+  "type": "task-registered"
+}

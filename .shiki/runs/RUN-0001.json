@@ -1,0 +1,17 @@
+{
+  "blocked_task_ids": {},
+  "created_at": "2026-05-29T08:53:48+00:00",
+  "dag": ".shiki/dag/G-0002.json",
+  "dispatchable_task_ids": [
+    "T-0002"
+  ],
+  "goal_id": "G-0002",
+  "id": "RUN-0001",
+  "plan_id": "P-0001",
+  "task_ids": [
+    "T-0002"
+  ],
+  "worktrees": [
+    ".shiki/worktrees/T-0002.json"
+  ]
+}
