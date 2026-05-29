@@ -1,0 +1,13 @@
+{
+  "actor": "shiki-cli",
+  "evidence": [
+    ".shiki/tasks/T-0003.json"
+  ],
+  "goal_id": "G-0003",
+  "id": "L-0010",
+  "links": [],
+  "summary": "Task registered: target hermetic\u81ea\u5df1\u30c6\u30b9\u30c8\u306bgit identity\u8a2d\u5b9a\uff0bshiki-orchestrator.yml\u8ffd\u52a0",
+  "task_id": "T-0003",
+  "timestamp": "2026-05-29T10:02:49+00:00",
+  "type": "task-registered"
+}
