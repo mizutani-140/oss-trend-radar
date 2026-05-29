@@ -1,13 +1,13 @@
 {
   "acceptance_checks": [
-    "`python -m ossradar report` \u5b9f\u884c\u3067 reports/<\u65e5\u4ed8>.md \u304c\u751f\u6210\u3055\u308c\u308b",
-    "\u30ec\u30dd\u30fc\u30c8\u306b\u4e0a\u4f4dN\u4ef6\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u540d\u30fb\u30b9\u30bf\u30fc\u6570\u30fbURL\u304c\u542b\u307e\u308c\u308b",
-    "API\u30ec\u30b9\u30dd\u30f3\u30b9\u3092\u30e2\u30c3\u30af\u3057\u3066\u6574\u5f62\u30ed\u30b8\u30c3\u30af\u3092\u691c\u8a3c\u3059\u308bpytest\u304cgreen"
+    "`python -m ossradar report` 実行で reports/<日付>.md が生成される",
+    "レポートに上位N件のリポジトリ名・スター数・URLが含まれる",
+    "APIレスポンスをモックして整形ロジックを検証するpytestがgreen"
   ],
   "assigned_runtime": "codex",
   "dependencies": [],
   "expected_branch": "shiki/t-0002-search-api-oss-n-markdown-1-cli",
-  "expected_pr": null,
+  "expected_pr": 2,
   "github_issue": 1,
   "goal_id": "G-0002",
   "id": "T-0002",
@@ -15,7 +15,8 @@
     "L-0003",
     "L-0004",
     "L-0005",
-    "L-0007"
+    "L-0007",
+    "L-0012"
   ],
   "locks": [
     "path:**/*"
@@ -25,7 +26,7 @@
     "tdd"
   ],
   "risk_level": "low",
-  "scope": "Python CLI 1\u672c\u3067GitHub Search API\u30921\u56de\u547c\u3073\u51fa\u3057\u3001\u4eba\u6c17OSS\u4e0a\u4f4dN\u4ef6(\u30ea\u30dd\u30b8\u30c8\u30ea\u540d/\u30b9\u30bf\u30fc\u6570/\u8a00\u8a9e/\u8aac\u660e/URL)\u3092\u53d6\u5f97\u3057\u3066 reports/<\u65e5\u4ed8>.md \u3092\u751f\u6210\u3059\u308b\u6700\u5c0f\u30a8\u30f3\u30c9\u30c4\u30fc\u30a8\u30f3\u30c9\u5b9f\u88c5\u3002httpx + pytest \u3092\u4f7f\u7528\u3002",
-  "status": "ready",
-  "title": "\u6700\u521d\u306e\u7e26\u5207\u308a: Search API\u304b\u3089\u4eba\u6c17OSS\u4e0a\u4f4dN\u4ef6\u3092\u53d6\u5f97\u3057Markdown\u30ec\u30dd\u30fc\u30c8\u30921\u30d5\u30a1\u30a4\u30eb\u751f\u6210\u3059\u308bCLI"
+  "scope": "Python CLI 1本でGitHub Search APIを1回呼び出し、人気OSS上位N件(リポジトリ名/スター数/言語/説明/URL)を取得して reports/<日付>.md を生成する最小エンドツーエンド実装。httpx + pytest を使用。",
+  "status": "review",
+  "title": "最初の縦切り: Search APIから人気OSS上位N件を取得しMarkdownレポートを1ファイル生成するCLI"
 }
