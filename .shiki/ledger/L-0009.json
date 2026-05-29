@@ -1,0 +1,13 @@
+{
+  "actor": "shiki-cli",
+  "evidence": [
+    ".shiki/goals/G-0003.json"
+  ],
+  "goal_id": "G-0003",
+  "id": "L-0009",
+  "links": [],
+  "summary": "Goal registered: CI\u4fee\u5fa9: target repo\u306ehermetic\u81ea\u5df1\u30c6\u30b9\u30c8git identity\u3068orchestrator workflow\u6574\u5099",
+  "task_id": null,
+  "timestamp": "2026-05-29T10:02:39+00:00",
+  "type": "goal-created"
+}

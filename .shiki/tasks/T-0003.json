@@ -1,0 +1,31 @@
+{
+  "acceptance_checks": [
+    "全 test_shiki_*.sh がCI相当でEXIT=0",
+    "Validate Shiki mirror がPRでpass"
+  ],
+  "assigned_runtime": "claude-code",
+  "dependencies": [],
+  "expected_branch": "shiki/fix-ci-target-validate",
+  "expected_pr": null,
+  "github_issue": null,
+  "goal_id": "G-0003",
+  "id": "T-0003",
+  "ledger_evidence": [
+    "L-0010",
+    "L-0011"
+  ],
+  "locks": [
+    "path:scripts/test_shiki_*.sh",
+    "path:.github/workflows/shiki-orchestrator.yml"
+  ],
+  "non_goals": [
+    "ossradar(T-0002)実装への変更"
+  ],
+  "required_skills": [
+    "diagnose"
+  ],
+  "risk_level": "medium",
+  "scope": "scripts/test_shiki_{control_plane,daemon_runner,run_orchestrator}.sh にrepo-local git identityを設定し、欠落していた .github/workflows/shiki-orchestrator.yml を追加してdaemon_runner自己テストを満たす",
+  "status": "done",
+  "title": "target hermetic自己テストにgit identity設定＋shiki-orchestrator.yml追加"
+}
