@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "required": [
+    "verdict",
+    "summary",
+    "goal_id",
+    "task_id",
+    "pr",
+    "head_sha",
+    "can_merge",
+    "confidence"
+  ],
+  "properties": {
+    "verdict": {
+      "enum": [
+        "complete",
+        "repair_required",
+        "blocked",
+        "needs_guardian",
+        "insufficient_evidence"
+      ]
+    },
+    "summary": { "type": "string" },
+    "goal_id": { "type": "string" },
+    "task_id": { "type": "string" },
+    "pr": { "type": "integer" },
+    "head_sha": { "type": "string" },
+    "can_merge": { "type": "boolean" },
+    "blocking_reason": { "type": "string" },
+    "repair_packet": { "type": "string" },
+    "confidence": { "type": "number" }
+  }
+}

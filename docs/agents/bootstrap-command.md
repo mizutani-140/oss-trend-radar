@@ -1,0 +1,152 @@
+# Shiki Bootstrap Command
+
+`bin/shiki` is the single operational entrypoint for repeatable Shiki setup.
+
+## Install Globally Once
+
+```bash
+/Users/kio.mizutani/shiki/bin/shiki install-global
+```
+
+This creates or updates:
+
+- `~/.local/bin/shiki`
+- `~/.claude/commands/shiki.md`
+- `~/.codex/skills/shiki/SKILL.md`
+
+Ensure `~/.local/bin` is on `PATH`. Restart Codex or Claude Code if the
+running client does not reload commands dynamically.
+
+Check which adapters are currently usable:
+
+```bash
+shiki doctor
+```
+
+`shiki doctor` separates Shiki CLI availability from runtime authentication. If
+Claude Code shows `Please run /login` or `API Error: 401 Invalid authentication
+credentials`, log Claude Code in with `claude auth login` or `/login`; Codex and
+terminal entrypoints can still use `shiki start` when their own auth is ready.
+
+## Start A Target Repository
+
+```bash
+shiki start /path/to/target-repo --repo OWNER/REPO --private
+```
+
+This is the standard user-facing Shiki entrypoint. It will:
+
+- install Shiki template files;
+- initialize Git if needed;
+- create the GitHub repository if missing;
+- add or update `origin`;
+- write `.shiki/repo.json`;
+- commit and push the initial Shiki state;
+- set `CLAUDE_CODE_OAUTH_TOKEN` from the environment when present;
+- configure branch protection with Shiki required checks when GitHub permissions allow it;
+- collect or consume Goal answers;
+- write a machine-readable plan;
+- run Shiki orchestration;
+- create the first task issue and handoff evidence.
+
+`shiki init` is still available as a lower-level command, but `/shiki` should
+prefer `shiki start` unless the user explicitly asks for advanced control.
+
+`shiki start` may run interactively. When values are missing, it asks one
+question at a time for the GitHub repo slug, project name, Goal, outcome,
+completion conditions, non-goals, and first vertical slice. The selected
+engineering Skill Gate directory is recorded in `.shiki/starts/`, the plan, and
+handoff evidence. By default, Shiki uses
+`/Users/kio.mizutani/Documents/lead-os/skills/engineering` when present.
+
+Do not use `install-target` for normal setup. Shiki is GitHub-first.
+
+## Publish This Shiki Platform Repo
+
+```bash
+CLAUDE_CODE_OAUTH_TOKEN=... shiki bootstrap-platform --repo OWNER/shiki --private
+```
+
+The command is idempotent. It will:
+
+- validate `.shiki/`;
+- initialize Git if needed;
+- create the GitHub repo if missing;
+- add `origin` if missing;
+- commit and push the current Shiki template;
+- set `CLAUDE_CODE_OAUTH_TOKEN` from the environment when present;
+- configure branch protection with Shiki required checks when GitHub permissions allow it;
+- save defaults in `~/.shiki/config.json`.
+
+After defaults are saved, rerun:
+
+```bash
+shiki bootstrap-platform
+```
+
+## Local-Only Template Copy
+
+```bash
+shiki install-target /path/to/target-repo --local-only
+```
+
+Use this only for tests, fixtures, or explicit local-only template inspection.
+Use `--force` only when you intentionally want to overwrite existing target files.
+
+## Slash Command
+
+After `shiki install-global`, Claude Code can invoke:
+
+```text
+/shiki <goal or task>
+```
+
+Codex can use the global `shiki` skill in future sessions and can always call
+the CLI directly:
+
+```bash
+shiki status
+shiki doctor
+```
+
+## Control Plane Commands
+
+After `shiki init` has connected the target repo to GitHub, use the control
+commands for durable execution state:
+
+```bash
+shiki plan guide --prompt "..."
+shiki plan ingest --plan-file PLAN.json
+shiki run --plan P-0001
+shiki daemon enqueue-plan --plan-file PLAN.json
+shiki daemon run --once
+shiki runner next
+shiki runner execute --task-id T-0001 --command "..."
+shiki smoke live --plan-file PLAN.json --dry-run
+shiki smoke live --plan-file PLAN.json --execute-github
+shiki smoke live --plan-file PLAN.json --execute-github --push-branch
+shiki goal create --title "..." --outcome "..."
+shiki issue plan --goal-id G-0001 --title "..." --scope "..." --acceptance-check "..."
+shiki lock acquire T-0001
+shiki dispatch check T-0001
+shiki worktree allocate T-0001
+shiki github issue --task-id T-0001
+shiki github pr --task-id T-0001
+shiki repair packet --task-id T-0001 --pr 123 --minimal-change "..." --verification-command "..."
+shiki handoff task T-0001
+shiki handoff repair RP-0001
+shiki task status T-0001 --status done
+shiki goal complete G-0001
+```
+
+See `docs/agents/control-commands.md` for the full sequence.
+
+## Required GitHub Checks
+
+The bootstrap command attempts to require:
+
+- `Validate Shiki mirror`
+- `CCA verdict`
+- `MergeGate policy check`
+
+If the GitHub API rejects branch protection because of plan or permission limits, configure these checks manually in branch protection or rulesets.
