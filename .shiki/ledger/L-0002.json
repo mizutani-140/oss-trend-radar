@@ -1,0 +1,14 @@
+{
+  "actor": "shiki-cli",
+  "evidence": [
+    ".shiki/goals/G-0002.json",
+    ".shiki/plans/P-0001.json"
+  ],
+  "goal_id": "G-0002",
+  "id": "L-0002",
+  "links": [],
+  "summary": "Goal registered from plan: GitHub\u30c8\u30ec\u30f3\u30c9OSS\u30fb\u30b9\u30bf\u30fc\u7372\u5f97\u6570\u3092\u5b9a\u671f\u30ea\u30b5\u30fc\u30c1\u3057\u3001Markdown\u30ec\u30dd\u30fc\u30c8\u3092\u81ea\u52d5\u751f\u6210\u3059\u308b\u57fa\u76e4\u3092\u69cb\u7bc9",
+  "task_id": null,
+  "timestamp": "2026-05-29T08:53:47+00:00",
+  "type": "goal-created"
+}

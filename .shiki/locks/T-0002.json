@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-05-29T08:53:48+00:00",
+  "goal_id": "G-0002",
+  "locks": [
+    "path:**/*"
+  ],
+  "owner": "shiki-run",
+  "state": "active",
+  "task_id": "T-0002"
+}

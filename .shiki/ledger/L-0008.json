@@ -1,0 +1,16 @@
+{
+  "actor": "shiki-cli",
+  "evidence": [
+    ".shiki/starts/START-0001.json",
+    ".shiki/plans/P-0001.json"
+  ],
+  "goal_id": "G-0002",
+  "id": "L-0008",
+  "links": [
+    "https://github.com/mizutani-140/oss-trend-radar/issues/1"
+  ],
+  "summary": "Shiki start START-0001 initialized mizutani-140/oss-trend-radar",
+  "task_id": null,
+  "timestamp": "2026-05-29T08:53:48+00:00",
+  "type": "handoff"
+}

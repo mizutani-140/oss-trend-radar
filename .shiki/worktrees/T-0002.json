@@ -1,0 +1,14 @@
+{
+  "branch": "shiki/t-0002-search-api-oss-n-markdown-1-cli",
+  "created_at": "2026-05-29T08:53:48+00:00",
+  "created_by": "shiki-run",
+  "goal_id": "G-0002",
+  "locks": [
+    "path:**/*"
+  ],
+  "path": "/Users/kio.mizutani/.worktrees/shiki-t-0002-search-api-oss-n-markdown-1-cli",
+  "pr": null,
+  "runtime": "codex",
+  "state": "registered",
+  "task_id": "T-0002"
+}
