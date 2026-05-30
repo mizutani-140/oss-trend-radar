@@ -1,0 +1,13 @@
+{
+  "actor": "shiki-cli",
+  "evidence": [
+    ".shiki/tasks/T-0004.json"
+  ],
+  "goal_id": "G-0002",
+  "id": "L-0013",
+  "links": [],
+  "summary": "Task registered: \u65e5\u6b21\u30ec\u30dd\u30fc\u30c8\u306e\u81ea\u52d5\u751f\u6210(cron)\u3068reports\u30d6\u30e9\u30f3\u30c1\u3078\u306e\u6c38\u7d9a\u5316",
+  "task_id": "T-0004",
+  "timestamp": "2026-05-30T05:30:08+00:00",
+  "type": "task-registered"
+}
