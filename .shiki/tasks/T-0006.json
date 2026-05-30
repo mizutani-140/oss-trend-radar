@@ -1,0 +1,30 @@
+{
+  "acceptance_checks": [
+    "同日再実行を含むpublishロジックがCI相当の使い捨てgit環境で成功する",
+    "workflow_dispatch本番起動が成功しreportsブランチにレポートとdata/スナップショットが残る"
+  ],
+  "assigned_runtime": "claude-code",
+  "dependencies": [],
+  "expected_branch": "shiki/t-0006-fix-report-publish",
+  "expected_pr": 8,
+  "github_issue": 4,
+  "goal_id": "G-0002",
+  "id": "T-0006",
+  "ledger_evidence": [
+    "L-0017",
+    "L-0018"
+  ],
+  "locks": [
+    "path:.github/workflows/ossradar-daily-report.yml"
+  ],
+  "non_goals": [
+    "レポート内容/デルタロジックの変更"
+  ],
+  "required_skills": [
+    "diagnose"
+  ],
+  "risk_level": "medium",
+  "scope": ".github/workflows/ossradar-daily-report.yml のpublishステップで、reportsブランチ切替前に未追跡の生成物を掃除し、同日再実行やreports/data/追加でもgit switchが衝突しないようにする。",
+  "status": "review",
+  "title": "修復: 日次レポートpublishのブランチ切替衝突(同日再実行/スナップショット)"
+}
