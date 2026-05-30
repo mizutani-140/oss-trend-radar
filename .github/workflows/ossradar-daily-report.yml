@@ -54,6 +54,11 @@ jobs:
           tmp="$(mktemp -d)"
           cp -a reports/. "$tmp/"
 
+          # Drop the freshly generated (untracked) files so switching to the
+          # reports branch never aborts on "untracked files would be overwritten"
+          # (happens on same-day re-runs and once reports/data/ snapshots exist).
+          git clean -fd reports
+
           # Move onto the reports branch (create it on first run).
           git fetch origin reports || true
           if git rev-parse --verify --quiet origin/reports; then
