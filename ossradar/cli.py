@@ -9,6 +9,7 @@ from pathlib import Path
 
 from .github import DEFAULT_QUERY, fetch_trending
 from .report import format_report
+from .snapshot import compute_deltas, load_latest_snapshot, write_snapshot
 
 
 def run_report(
@@ -18,17 +19,24 @@ def run_report(
     out_dir: str | Path = "reports",
     today: datetime.date | None = None,
 ) -> Path:
-    """Fetch trending repos and write reports/<date>.md. Returns the file path."""
+    """Fetch trending repos and write reports/<date>.md. Returns the file path.
+
+    Also persists a machine-readable snapshot (reports/data/<date>.json) and
+    renders star deltas versus the most recent prior snapshot.
+    """
     today = today or datetime.date.today()
     token = os.environ.get("GITHUB_TOKEN")
 
     repos = fetch_trending(query, top=top, token=token)
-    markdown = format_report(repos, generated_on=today)
+    prior = load_latest_snapshot(out_dir, before=today)
+    deltas = compute_deltas(repos, prior)
+    markdown = format_report(repos, generated_on=today, deltas=deltas)
 
     out_path = Path(out_dir)
     out_path.mkdir(parents=True, exist_ok=True)
     report_file = out_path / f"{today.isoformat()}.md"
     report_file.write_text(markdown, encoding="utf-8")
+    write_snapshot(repos, out_dir=out_dir, on_date=today)
     return report_file
 
 
