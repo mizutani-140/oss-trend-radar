@@ -17,6 +17,7 @@
     "L-0014"
   ],
   "locks": [
+    "path:.github/workflows/ci-tests.yml",
     "path:.github/workflows/ossradar-daily-report.yml"
   ],
   "non_goals": [
